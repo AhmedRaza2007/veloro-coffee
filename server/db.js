@@ -1,5 +1,9 @@
-const fs = require('fs');
-const path = require('path');
+import fs from 'fs';
+import path from 'path';
+import { fileURLToPath } from 'url';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const DB_PATH = path.join(__dirname, 'database.json');
 
@@ -173,7 +177,7 @@ const defaultData = {
       id: "usr-admin",
       name: "Veloro Executive Admin",
       email: "admin@veloro.com",
-      password: "veloro123", // Pre-configured demo pass
+      password: "veloro123",
       role: "admin",
       createdAt: new Date().toISOString()
     },
@@ -222,7 +226,6 @@ const defaultData = {
   ]
 };
 
-// Database class helper
 class Database {
   constructor() {
     this.init();
@@ -260,4 +263,4 @@ class Database {
   }
 }
 
-module.exports = new Database();
+export default new Database();

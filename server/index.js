@@ -1,9 +1,13 @@
-const express = require('express');
-const cors = require('cors');
-const path = require('path');
-const multer = require('multer');
-const fs = require('fs');
-const db = require('./db');
+import express from 'express';
+import cors from 'cors';
+import path from 'path';
+import multer from 'multer';
+import fs from 'fs';
+import { fileURLToPath } from 'url';
+import db from './db.js';
+
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -79,7 +83,7 @@ app.post('/api/products', upload.single('imageFile'), (req, res) => {
   const data = db.readData();
   const body = req.body;
   
-  let imageUrl = body.imageUrl || '/assets/hero_veloro_coffee.jpg';
+  let imageUrl = body.imageUrl || 'assets/hero_veloro_coffee.jpg';
   if (req.file) {
     imageUrl = `/uploads/${req.file.filename}`;
   }
@@ -193,7 +197,6 @@ app.post('/api/orders', (req, res) => {
     return res.status(400).json({ success: false, message: 'Cart is empty' });
   }
 
-  // Generate Unique Luxury Order ID
   const randomNum = Math.floor(10000 + Math.random() * 90000);
   const orderId = `VEL-${randomNum}`;
   const trackingCode = `TRK-VEL-${randomNum}-US`;
@@ -217,7 +220,6 @@ app.post('/api/orders', (req, res) => {
     createdAt: new Date().toISOString()
   };
 
-  // Deduct inventory stock
   items.forEach(item => {
     const p = data.products.find(prod => prod.id === item.id);
     if (p && p.stock >= item.quantity) {
@@ -434,5 +436,4 @@ if (process.env.NODE_ENV !== 'production' || !process.env.VERCEL) {
   });
 }
 
-module.exports = app;
-
+export default app;

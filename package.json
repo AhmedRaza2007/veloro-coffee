@@ -1,6 +1,7 @@
 {
   "name": "veloro-coffee",
   "version": "1.0.0",
+  "type": "module",
   "description": "Ultra Luxury Artisanal Coffee E-Commerce & Management Platform",
   "main": "server/index.js",
   "scripts": {
@@ -23,7 +24,7 @@
   "author": "Veloro Haute Cellar",
   "license": "ISC",
   "dependencies": {
-    "bcryptjs": "^3.0.3 border",
+    "bcryptjs": "^3.0.3",
     "canvas-confetti": "^1.9.4",
     "chart.js": "^4.4.8",
     "cors": "^2.8.5",
@@ -37,10 +38,11 @@
     "react-dom": "^19.0.0"
   },
   "devDependencies": {
-    "@tailwindcss/vite": "^4.1.1",
     "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
     "concurrently": "^9.1.2",
-    "tailwindcss": "^4.1.1",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.17",
     "vite": "^6.2.1"
   }
 }
