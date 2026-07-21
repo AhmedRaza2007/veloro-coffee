@@ -222,7 +222,7 @@ export default function StoreFront({ onQuickView, onOpenReserve }) {
           
           <div className="relative rounded-3xl overflow-hidden border border-[#D4AF37]/40 shadow-2xl">
             <img
-              src="/assets/veloro_pour_over.jpg"
+              src="assets/veloro_pour_over.jpg"
               alt="Veloro Artisanal Roast Craft"
               className="w-full h-[450px] object-cover"
             />
@@ -274,7 +274,7 @@ export default function StoreFront({ onQuickView, onOpenReserve }) {
       <section className="relative py-24 px-4 sm:px-6 lg:px-8 border-b border-[#D4AF37]/20">
         <div className="max-w-7xl mx-auto relative rounded-3xl overflow-hidden border border-[#D4AF37]/40 shadow-2xl p-12 lg:p-16 flex flex-col justify-end min-h-[420px]">
           <img
-            src="/assets/veloro_tasting_room.jpg"
+            src="assets/veloro_tasting_room.jpg"
             alt="Veloro VIP Lounge Bar"
             className="absolute inset-0 w-full h-full object-cover brightness-40"
           />
